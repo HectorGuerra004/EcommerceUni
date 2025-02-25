@@ -1,0 +1,6 @@
+@import "tailwindcss";
+@source "../views";
+
+
+@import 'daisyui/dist/full.css';
+
