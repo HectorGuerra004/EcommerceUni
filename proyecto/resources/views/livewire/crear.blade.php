@@ -9,7 +9,7 @@
 
         <div class="inline-block align-bottom bg-white rounded-lg text-left overflow-hidden shadow-x1 transform transition-all sm:my-8 sm:align-middle sm:max-w-lg sm:w-full"
             role="dialog" aria-modal="true" aria-labelledby="modal-headline">
-            <form>
+            <form enctype="multipart/form-data">
                 <div class="bg-white px-4 pt-5 pb-4 sm:p-6 sm:pb-4">
                     <div class="mb-4">
                         <label for="nombre" class="block text-gray-700 text-sm font-bold mb-2">Nombre:</label>
@@ -36,10 +36,10 @@
                             id="stock" wire:model="stock">
                     </div>
                     <div class="mb-4">
-                        <label for="imagen" class="block text-gray-700 text-sm font-bold mb-2">imagen:</label>
-                        <input type="text"
+                        <label for="imagenes" class="block text-gray-700 text-sm font-bold mb-2">imagen:</label>
+                        <input type="file"
                             class="!shadow !appearance-none !border !rounded !w-full !py-2 !px-3 !text-gray-700 !leading-tight !focus:outline-none !focus:shadow-outline"
-                            id="imagen" wire:model="imagen">
+                            id="imagenes" wire:model="imagenes" multiple accept="image/*">
                     </div>
                     <div class="mb-4">
                         <label for="categoria" class="block text-gray-700 text-sm font-bold mb-2">categoria:</label>

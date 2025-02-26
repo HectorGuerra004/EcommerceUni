@@ -14,7 +14,7 @@
                 </label>
                 <ul tabindex="0"
                     class="menu menu-compact dropdown-content mt-3 p-2 shadow bg-neutral-800 rounded-box w-52 z-50">
-                    <li><a>Inicio</a></li>
+                    <li><a href="{{ url('/') }}">Inicio</a></li>
                     <li><a href="{{ url('catalogo') }}" >Catálogo</a></li>
                     <li><a>Registrarse</a></li>
                     <li><a>Iniciar Sesión</a></li>
@@ -23,7 +23,7 @@
         </div>
         <div class="hidden lg:flex">
             <ul class="menu menu-horizontal px-1">
-                <li><a>Inicio</a></li>
+                <li><a href="{{ url('/') }}">Inicio</a></li>
                 <li><a href="{{ url('catalogo') }}">Catálogo</a></li>
                 <li><a>Registrarse</a></li>
                 <li><a>Iniciar Sesión</a></li>

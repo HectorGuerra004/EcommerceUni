@@ -30,7 +30,7 @@
                         {{-- <th class="!border px-4 py-2">descripcion</th> --}}
                         <th class="!border px-4 py-2">precio</th>
                         <th class="!border px-4 py-2">stock</th>
-                        <th class="!border px-4 py-2">imagen</th>
+                        {{-- <th class="!border px-4 py-2">imagen</th> --}}
                         <th class="!border px-4 py-2">categoria</th>
                         <th class="!border px-4 py-2">estado</th>
                         <th class="!border px-4 py-2">Acciones</th>
@@ -45,7 +45,7 @@
                             {{-- <td class="!border px-4 py-2">{{ $producto->descripcion }}</td> --}}
                             <td class="!border px-4 py-2">{{ $producto->precio }}</td>
                             <td class="!border px-4 py-2">{{ $producto->stock }}</td>
-                            <td class="!border px-4 py-2">{{ $producto->imagen }}</td>
+                            {{-- <td class="!border px-4 py-2">{{ $producto->imagen }}</td> --}}
                             <td class="!border px-4 py-2">{{ $producto->categoria }}</td>
                             <td class="!border px-4 py-2">{{ $producto->estado }}</td>
                             <td class="!border px-4 py-2 text-center">
