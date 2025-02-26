@@ -1,3 +1,4 @@
+
 {{-- <x-slot name="header">
     <h1 class="text-gray"></h1>
 </x-slot> --}}
@@ -16,11 +17,15 @@
             </div>
             @endif
 
+            @role('admin')
+
             <button wire:click="crear()"
                 class="!bg-green-500 !hover:bg-green-600 !text-white !font-bold !py-2 !px-2 !my-3">Nuevo</button>
             @if ($modal)
                 @include('livewire.crear')
             @endif
+
+            @endrole
 
             <table class="table-fixed w-full">
                 <thead>
@@ -60,4 +65,6 @@
             </table>
         </div>
     </div>
+
 </div>
+
