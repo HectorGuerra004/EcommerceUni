@@ -1,6 +1,6 @@
 <div class="navbar dark:bg-neutral-700 dark:text-white">
     <div class="flex-1">
-        <a class="btn btn-ghost text-xl">daisyUI</a>
+        <a class="btn btn-ghost text-xl">Tienda</a>
     </div>
     <div class="flex-none">
         <div class="lg:hidden">
@@ -14,8 +14,8 @@
                 </label>
                 <ul tabindex="0"
                     class="menu menu-compact dropdown-content mt-3 p-2 shadow bg-neutral-800 rounded-box w-52 z-50">
-                    <li><a href="{{ url('/') }}">Inicio</a></li>
-                    <li><a href="{{ url('catalogo') }}" >Catálogo</a></li>
+                    <li><a href="{{ url('/') }}" wire:navigate>Inicio</a></li>
+                    <li><a href="{{ url('catalogo') }}" wire:navigate>Catálogo</a></li>
                     <li><a>Registrarse</a></li>
                     <li><a>Iniciar Sesión</a></li>
                 </ul>
@@ -23,8 +23,8 @@
         </div>
         <div class="hidden lg:flex">
             <ul class="menu menu-horizontal px-1">
-                <li><a href="{{ url('/') }}">Inicio</a></li>
-                <li><a href="{{ url('catalogo') }}">Catálogo</a></li>
+                <li><a href="{{ url('/') }}" wire:navigate>Inicio</a></li>
+                <li><a href="{{ url('catalogo') }}" wire:navigate>Catálogo</a></li>
                 <li><a>Registrarse</a></li>
                 <li><a>Iniciar Sesión</a></li>
             </ul>

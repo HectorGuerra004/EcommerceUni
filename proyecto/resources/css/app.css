@@ -1,8 +1,5 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+@import "tailwindcss";
+@source "../views";
 
-/* Importar DaisyUI */
+
 @import 'daisyui/dist/full.css';
-
-/* Aquí puedes agregar tus estilos personalizados */
