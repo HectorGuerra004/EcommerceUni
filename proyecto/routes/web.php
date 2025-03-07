@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Livewire\Productos;
+use App\Http\Controllers\ProductoController;
 
 Route::get('/', function () {
     return view('landing');
@@ -9,6 +10,15 @@ Route::get('/', function () {
 Route::get('/catalogo', function () {
     return view('catalogo');
 });
+Route::get('/registrate', function () {
+    return view('registrate');
+});
+Route::get('/iniciarSesion', function () {
+    return view('iniciarSesion');
+});
+
+
+Route::get('/producto/{id}', [ProductoController::class, 'show'])->name('producto.show');
 
 Route::get('/welcome', function () {
     return view('welcome');

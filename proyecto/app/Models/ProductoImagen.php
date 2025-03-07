@@ -3,11 +3,13 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Support\Facades\Storage; // Importa la clase Storage
+
 
 class ProductoImagen extends Model
 {
 
-    protected $table = 'producto_imagenes'; // Especifica el nombre correcto de la tabla
+    protected $table = 'producto_imagenes'; // Nombre de la tabla en la base de datos
 
     protected $fillable = [
         'producto_id',
@@ -17,6 +19,13 @@ class ProductoImagen extends Model
     public function producto()
     {
         return $this->belongsTo(Producto::class);
+    }
+
+    public function getUrlImagenAttribute()
+    {
+        
+        return Storage::url($this->ruta_imagen);
+        
     }
 }
 ?>

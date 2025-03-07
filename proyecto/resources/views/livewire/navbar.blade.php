@@ -16,8 +16,8 @@
                     class="menu menu-compact dropdown-content mt-3 p-2 shadow bg-neutral-800 rounded-box w-52 z-50">
                     <li><a href="{{ url('/') }}" wire:navigate>Inicio</a></li>
                     <li><a href="{{ url('catalogo') }}" wire:navigate>Catálogo</a></li>
-                    <li><a>Registrarse</a></li>
-                    <li><a>Iniciar Sesión</a></li>
+                    <li><a href="{{ url('registrate') }}" wire:navigate>Registrarse</a></li>
+                    <li><a href="{{ url('iniciarSesion') }}" wire:navigate>Iniciar Sesión</a></li>
                 </ul>
             </div>
         </div>
@@ -25,8 +25,8 @@
             <ul class="menu menu-horizontal px-1">
                 <li><a href="{{ url('/') }}" wire:navigate>Inicio</a></li>
                 <li><a href="{{ url('catalogo') }}" wire:navigate>Catálogo</a></li>
-                <li><a>Registrarse</a></li>
-                <li><a>Iniciar Sesión</a></li>
+                <li><a href="{{ url('registrate') }}" wire:navigate>Registrarse</a></li>
+                <li><a href="{{ url('iniciarSesion') }}" wire:navigate>Iniciar Sesión</a></li>
             </ul>
         </div>
     </div>
