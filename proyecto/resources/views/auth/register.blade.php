@@ -1,60 +1,71 @@
-<x-guest-layout>
-    <x-authentication-card>
-        <x-slot name="logo">
-            <x-authentication-card-logo />
-        </x-slot>
+<!doctype html>
+<html data-theme="light">
 
-        <x-validation-errors class="mb-4" />
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    @vite('resources/css/app.css')
+</head>
 
-        <form method="POST" action="{{ route('register') }}">
-            @csrf
+<body>
 
-            <div>
-                <x-label for="name" value="{{ __('Name') }}" />
-                <x-input id="name" class="block mt-1 w-full" type="text" name="name" :value="old('name')" required autofocus autocomplete="name" />
-            </div>
+    <div class="min-h-screen flex flex-col">
+        <livewire:navbar />
+        <main class="flex-grow bg-[url('http://127.0.0.1:8000/storage/img/computadoras.jpg')] bg-cover bg-center">
+            <div class="flex flex-col items-center justify-center my-25 mx-5 dark">
+                <div class="w-full max-w-md bg-gray-800 rounded-lg shadow-md p-6">
+                    <h2 class="!text-2xl !font-bold text-center !text-gray-200 !mb-4">Registrate</h2>
 
-            <div class="mt-4">
-                <x-label for="email" value="{{ __('Email') }}" />
-                <x-input id="email" class="block mt-1 w-full" type="email" name="email" :value="old('email')" required autocomplete="username" />
-            </div>
+                    <form class="flex flex-wrap" method="POST" action="{{ route('register') }}">
+                        @csrf
+                        <input type="text" id="nombre" name="nombre" value="{{ old('nombre') }}"
+                            class="bg-gray-700 !text-gray-200 border-0 rounded-md !p-2 !mb-4 focus:bg-gray-600 focus:outline-none focus:ring-1 focus:ring-blue-500 transition ease-in-out duration-150 w-full md:w-[48%] !mr-[2%]"
+                            placeholder="Nombre" />
+                        <input type="text" id="apellido" name="apellido" value="{{ old('apellido') }}"
+                            class="bg-gray-700 !text-gray-200 border-0 rounded-md !p-2 !mb-4 focus:bg-gray-600 focus:outline-none focus:ring-1 focus:ring-blue-500 transition ease-in-out duration-150 w-full md:w-[48%] !mr-[2%]"
+                            placeholder="Apellido" />
+                        <input type="text" id="cedula" name="cedula" value="{{ old('cedula') }}"
+                            class="bg-gray-700 !text-gray-200 border-0 rounded-md !p-2 !mb-4 focus:bg-gray-600 focus:outline-none focus:ring-1 focus:ring-blue-500 transition ease-in-out duration-150 w-full md:w-[48%] !mr-[2%]"
+                            placeholder="Cedula" />
+                        <input type="number" id="telefono" name="telefono" value="{{ old('telefono') }}"
+                            class="bg-gray-700 !text-gray-200 border-0 rounded-md !p-2 !mb-4 focus:bg-gray-600 focus:outline-none focus:ring-1 focus:ring-blue-500 transition ease-in-out duration-150 w-full md:w-[48%] !mr-[2%]"
+                            placeholder="Telefono" />
+                        <input type="email" id="email" name="email" value="{{ old('email') }}"
+                            class="bg-gray-700 !text-gray-200 border-0 rounded-md !p-2 !mb-4 focus:bg-gray-600 focus:outline-none focus:ring-1 focus:ring-blue-500 transition ease-in-out duration-150 !w-full md:w-[48%] !mr-[2%]"
+                            placeholder="Correo Electronico" />
+                        <input type="text" id="password" name="password"
+                            class="bg-gray-700 !text-gray-200 border-0 rounded-md !p-2 !mb-4 focus:bg-gray-600 focus:outline-none focus:ring-1 focus:ring-blue-500 transition ease-in-out duration-150 w-full md:w-[48%] !mr-[2%]"
+                            placeholder="Contraseña" />
+                        <input type="text" id="password_confirmation" name="password_confirmation"
+                            class="bg-gray-700 text-gray-200 border-0 rounded-md !p-2 !mb-4 focus:bg-gray-600 focus:outline-none focus:ring-1 focus:ring-blue-500 transition ease-in-out duration-150 w-full md:w-[48%] !mr-[2%]"
+                            placeholder="Confirmar Contraseña" />
 
-            <div class="mt-4">
-                <x-label for="password" value="{{ __('Password') }}" />
-                <x-input id="password" class="block mt-1 w-full" type="password" name="password" required autocomplete="new-password" />
-            </div>
 
-            <div class="mt-4">
-                <x-label for="password_confirmation" value="{{ __('Confirm Password') }}" />
-                <x-input id="password_confirmation" class="block mt-1 w-full" type="password" name="password_confirmation" required autocomplete="new-password" />
-            </div>
 
-            @if (Laravel\Jetstream\Jetstream::hasTermsAndPrivacyPolicyFeature())
-                <div class="mt-4">
-                    <x-label for="terms">
-                        <div class="flex items-center">
-                            <x-checkbox name="terms" id="terms" required />
-
-                            <div class="ms-2">
-                                {!! __('I agree to the :terms_of_service and :privacy_policy', [
-                                        'terms_of_service' => '<a target="_blank" href="'.route('terms.show').'" class="underline text-sm text-gray-600 hover:text-gray-900 rounded-md focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">'.__('Terms of Service').'</a>',
-                                        'privacy_policy' => '<a target="_blank" href="'.route('policy.show').'" class="underline text-sm text-gray-600 hover:text-gray-900 rounded-md focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">'.__('Privacy Policy').'</a>',
-                                ]) !!}
-                            </div>
+                        <button type="submit"
+                            class="!bg-gradient-to-r !from-indigo-500 !mx-auto !to-blue-500 !text-white !font-bold !py-2 !px-4 !rounded-md !mt-4 !hover:bg-indigo-600 !hover:to-blue-600 !transition !ease-in-out !duration-150">
+                            Crear Usuario
+                        </button>
+                    </form>
+                    @if ($errors->any())
+                        <div class="mt-4 p-4 bg-red-100 text-red-700 rounded-lg">
+                            <ul>
+                                @foreach ($errors->all() as $error)
+                                    <li>{{ $error }}</li>
+                                @endforeach
+                            </ul>
                         </div>
-                    </x-label>
+                    @endif
                 </div>
-            @endif
-
-            <div class="flex items-center justify-end mt-4">
-                <a class="underline text-sm text-gray-600 hover:text-gray-900 rounded-md focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500" href="{{ route('login') }}">
-                    {{ __('Already registered?') }}
-                </a>
-
-                <x-button class="ms-4">
-                    {{ __('Register') }}
-                </x-button>
             </div>
-        </form>
-    </x-authentication-card>
-</x-guest-layout>
+        </main>
+
+
+        <livewire:footer />
+    </div>
+
+
+
+</body>
+
+</html>
