@@ -24,7 +24,7 @@ class Productos extends Component
         'descripcion' => 'required',
         'precio' => 'required',
         'stock' => 'required',
-        'imagenes.*' => ['required', 'image', 'mimes:jpeg,png,jpg,jpeg'],
+        'imagenes.*' => ['required', 'image', 'mimes:jpeg,png,jpg,webp', 'max:2048'],
         'categoria' => 'required',
         'estado' => 'required'
     ];

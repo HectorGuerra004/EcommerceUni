@@ -24,9 +24,9 @@
                     </div>
                     <div class="mb-4">
                         <label for="descripcion" class="block text-gray-700 text-sm font-bold mb-2">descripcion:</label>
-                        <input type="text"
+                        <textarea type="text"
                             class="!shadow !appearance-none !border !rounded !w-full !py-2 !px-3 !text-gray-700 !leading-tight !focus:outline-none !focus:shadow-outline"
-                            id="descripcion" wire:model="descripcion">
+                            id="descripcion" wire:model="descripcion"></textarea>
                     </div>
                     <div class="mb-4">
                         <label for="precio" class="block text-gray-700 text-sm font-bold mb-2">precio:</label>
