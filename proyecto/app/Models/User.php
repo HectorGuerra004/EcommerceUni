@@ -9,6 +9,11 @@ use Illuminate\Notifications\Notifiable;
 use Laravel\Fortify\TwoFactorAuthenticatable;
 use Laravel\Jetstream\HasProfilePhoto;
 use Laravel\Sanctum\HasApiTokens;
+use App\Models\Cart;
+
+/**
+ * @property-read Cart|null $cart
+ */
 
 class User extends Authenticatable
 {
@@ -20,19 +25,39 @@ class User extends Authenticatable
     use Notifiable;
     use TwoFactorAuthenticatable;
 
-    /**
-     * The attributes that are mass assignable.
-     *
-     * @var array<int, string>
-     */
+
     protected $fillable = [
         'nombre',
         'apellido',
         'cedula',
         'telefono',
         'email',
-        'password', 
+        'password',
     ];
+
+    // ✅ Renombrar la relación para evitar conflicto
+    public function cartRelation()
+    {
+        return $this->hasOne(Cart::class);
+    }
+
+    public function getCartAttribute()
+    {
+        // Verifica si ya hay un carrito cargado
+        if ($this->cartRelation) {
+            return $this->cartRelation;
+        }
+
+        // Crea el carrito solo si no existe
+        $cart = $this->cartRelation()->firstOrCreate([
+            'user_id' => $this->id
+        ]);
+
+        // Recarga la relación para evitar recursión
+        $this->load('cartRelation');
+
+        return $cart;
+    }
 
     /**
      * The attributes that should be hidden for serialization.

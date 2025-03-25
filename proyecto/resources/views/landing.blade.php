@@ -18,6 +18,12 @@
 
                 <p class="flex justify-center md:text-5xl text-3xl text-center md:text-left font-bold">Productos
                     Recomendados</p>
+                @auth
+                    <div class="p-4 bg-gray-100">
+                        <p>Usuario: {{ auth()->user()->email }}</p>
+                        <p>Roles: {{ auth()->user()->roles->pluck('nombre')->join(', ') }}</p>
+                    </div>
+                @endauth
             </div>
 
 

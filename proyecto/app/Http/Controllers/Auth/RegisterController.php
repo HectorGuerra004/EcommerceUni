@@ -10,6 +10,7 @@ use Illuminate\Support\Facades\Hash;
 use Illuminate\Auth\Events\Registered;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Validation\Rules;
+use App\Models\Cart;
 
 class RegisterController extends Controller
 {
@@ -23,7 +24,7 @@ class RegisterController extends Controller
     {
 
         // Depura los datos recibidos (elimina esto después)
-    //  dd($request->all());
+        //  dd($request->all());
         // Validación de datos
         $validated = $request->validate([
             'nombre' => ['required', 'string', 'max:255'],
@@ -44,18 +45,25 @@ class RegisterController extends Controller
             'password' => Hash::make($validated['password']),
         ]);
 
+        $user->cartRelation()->create([
+            'user_id' => $user->id,
+            'items_count' => 0 // ← Nuevo campo requerido
+        ]);
+
         // Asignación de rol (con verificación)
         $clientRole = Role::firstOrCreate(
             ['nombre' => 'cliente'], // Busca o crea el rol
             ['nombre' => 'cliente']  // Datos para creación
         );
-        
-        $user->roles()->attach($clientRole);
 
-        // Autenticación y redirección
+        $user->roles()->attach($clientRole->id); // Usar ID explícitamente
+
         event(new Registered($user));
         Auth::login($user);
 
-        return redirect()->route('landing'); // Ajusta la ruta de tu vista
+        // Redirigir según rol
+        return $user->roles->contains('name', 'admin')
+            ? redirect()->route('productos')
+            : redirect()->route('landing');
     }
 }
